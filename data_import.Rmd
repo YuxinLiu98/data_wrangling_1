@@ -27,7 +27,17 @@ read in excel file
 ```{r}
 library(tidyverse)
 library(readxl)
-mlb_df = read_excel("./data/mlb11.xlsx")
+library(haven)
+mlb_df = read_excel("./data/mlb11.xlsx", range = "A1:F7")
+pulse_data = read_sas("./data/public_pulse_data.sas7bdat")
+```
+
+## comparison with base R
+```{r}
+litters_base = read.csv("./data/FAS_litters.csv")
+```
+```{r}
+write_csv(mlb_df,"./data/mlb_subtable.xlsx")
 ```
 
 
